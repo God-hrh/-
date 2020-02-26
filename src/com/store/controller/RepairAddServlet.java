@@ -29,7 +29,7 @@ import com.store.pojo.SysUser;
  */
 @WebServlet("/submit")
 @MultipartConfig
-public class RepairSubmitServlet extends HttpServlet {
+public class RepairAddServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -65,9 +65,9 @@ public class RepairSubmitServlet extends HttpServlet {
 		 Repair repair=new Repair(equipment_building_id,userId,equipment_content,equipment_name_id,imgName);
 		 RepairDao repairDao=new RepairDaoImpl();
 		if( repairDao.addRepair(repair)) {
-			 		response.sendRedirect("repairIndex");
+			 		response.sendRedirect("repairs");
 		}else {
-			response.sendRedirect("repairIndex");
+			response.sendRedirect("repairs");
 		}
 	
 	}

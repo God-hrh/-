@@ -64,7 +64,8 @@
 				   <div class="col-md-2"></div>
 				    <label  for="buildingId" class="col-md-2  col-form-label-lg">指派人员</label>
 				    <div class="col-md-4">
-				      <select   name="userId"  class="form-control form-control-lg" id="buildingId">
+				    <input type="hidden" name="id" value="${repair.id}"/>
+				      <select   name="assignId"  class="form-control form-control-lg" id="buildingId">
 				          <c:forEach items="${ulist}" var="user">
 				            <option value="${user.id}">${user.userName}</option>
 				          </c:forEach>

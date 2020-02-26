@@ -27,13 +27,13 @@ import com.store.service.UserServiceImpl;
  * Servlet implementation class BuildingIndexServlet
  */
 @WebServlet("/perIndex")
-public class PerIndexServlet2 extends HttpServlet {
+public class PerIndexServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PerIndexServlet2() {
+    public PerIndexServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

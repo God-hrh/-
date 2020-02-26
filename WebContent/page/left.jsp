@@ -10,9 +10,9 @@
       <div id="logo" class="sidebar-header" >
       <div class="logo" style="width: 240px;
 	height: 64px;">
-	<span class="h3" >智慧校园</span>设备报修系统
-        
-      
+	<div style="text-align: center;line-height: 60px;">
+			<span class="h3" style="font-family: STKaiti ;">智慧校园</span><span style="font-family:FZShuTi; font-size:18px;"> 设备报修系统</span> 
+	</div>
       </div>
       	
       </div>

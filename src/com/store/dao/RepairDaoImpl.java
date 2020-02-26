@@ -46,21 +46,48 @@ public class RepairDaoImpl  implements RepairDao {
 	}
 
 	@Override
-	public boolean updateRepair(Repair Repair) {
-		String sql="update  Repair set RepairName=? where id=?";
+	public boolean updateRepair(Repair repair) {
+		String sql="update repair  set ";
+
+		 //更新的时候 通过动态的sql语句来进行更新
+		List<Object> params=new ArrayList<Object>();
+		if(repair.getStatus()!=0) {
+			params.add(repair.getStatus());
+			sql+=" status= ? ,";
+		}
+		
+		if(repair.getAcceptTime()!=null&&repair.getAcceptTime().equals("now")) {
+		   sql+=" accepttime=now() ,";
+		}
+		
+	    if(repair.getAssignId()!=null) {
+	    	sql+=" assignid=? ,";
+	    	params.add(repair.getAssignId());
+	    }	
+		if(repair.getRepairContent()!=null) {
+			sql+=" repaircontent=? ,";
+			params.add(repair.getRepairContent());
+		}
+	    if(repair.getEndTime()!=null&&repair.getEndTime().equals("now")) {
+	    	sql+=" endtime=now() ,";
+	    }
+	    sql=sql.substring(0, sql.lastIndexOf(","));
+	    sql+="where id=?";
+	    params.add(repair.getId());
 		conn=DBUtil.getConnection();
 		try {
 			stmt=conn.prepareStatement(sql);
-//			stmt.setString(1, Repair.getRepairName());
-			stmt.setInt(2, Repair.getId());
-            return stmt.executeUpdate()>0;			
+			for (int i = 0; i < params.size(); i++) {
+				stmt.setObject(i+1, params.get(i));
+			}
+			return  stmt.executeUpdate()>0;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
 			DBUtil.close(conn, stmt, rs);
 		}
-		return false;
+			return false;
 	}
 
 	@Override

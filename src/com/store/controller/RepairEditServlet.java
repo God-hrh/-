@@ -15,7 +15,7 @@ import com.store.pojo.Building;
 import com.store.pojo.Equipment;
 
 
-
+//新报修界面
 @WebServlet("/repairIndex")
 public class RepairEditServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;

@@ -30,7 +30,7 @@ public class ToUpdateEquipmentServlet extends HttpServlet {
 		Equipment equipment = eService.queryEquipmentById(id);
 		
 		request.setAttribute("e", equipment);
-		request.getRequestDispatcher("page/equipment/updatequipment.jsp").forward(request, response);
+		request.getRequestDispatcher("page/equipment/updateequipment.jsp").forward(request, response);
 		
 	}
 

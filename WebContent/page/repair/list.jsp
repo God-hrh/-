@@ -35,32 +35,33 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="card">
-              <div class="card-header"><h4>维修调度信息</h4></div>
-               
+              <div class="card-header"><h4>维修单信息</h4></div>
+              
               <div class="card-body">
-                      <table class="table table-striped">
-                        <tr>
-                          <th>编号</th>
+                      <table class="table  table-hover">
+                        <tr style="color:PaleGodenrod">
+                          
                           <th>设备名称</th>
                           <th>故障描述</th>
                           <th>地点</th>
                           <th>报修人</th>
                           <th>报修时间</th>
                           <th>状态</th>
-                          
-                          
+                          <th>维修人</th>
                           <th>操作</th>
                         </tr>
                          <c:forEach items="${list}" var="repair">
-                        <tr>
-                          <th>${repair.id}</th>
+                         <!--style="color:${repair.status==0?'white':repair.status==1?'black':'rgb(204,238,208)'}"s  -->
+                        <tr  style="color:AliceBlue" >
+                       
                           <th>${repair.equipmentName}</th>
                           <th>${repair.content}</th>
                           <th>${repair.buildingName}</th>
                           <th>${repair.userName}</th>
                           <th>${repair.startTime}</th>
                           <th>${repair.status==0?'新报修':repair.status==1?'维修中':'已完成'}</th>
-                          <td><a href="dispatchOne?id=${repair.id}" class="btn btn-sm btn-info">查看详情</a></td>
+                          <th>${repair.assignName==null?'未指定':repair.assignName}</th>
+                          <td><a href="" class="btn btn-sm btn-info">查看</a></td>
                        </tr>
                         
                         </c:forEach>
@@ -68,35 +69,33 @@
 
 <!--  分页-->
      
-                <nav>
+                    <nav>
                   <ul class="pagination mb-0">
-                  <li class="page-item "><a class="page-link" href="dispatchIndex?pageNo=1">首页<span class="sr-only">(current)</span></a></li>
+                  <li class="page-item "><a class="page-link" href="userIndex?pageNo=1">首页<span class="sr-only">(current)</span></a></li>
                         <li class="page-item ">
                         <c:if test="${page.pageNo>1}">
-                          <a class="page-link" href="dispatchIndex?pageNo=${page.pageNo-1}" tabindex="-1"><i class="mdi mdi-chevron-left"></i></a>
+                          <a class="page-link" href="userIndex?pageNo=${page.pageNo-1}" tabindex="-1"><i class="mdi mdi-chevron-left"></i></a>
                         </c:if>
                         </li>
                         <c:forEach begin="1" end="${page.totalPage}" var="p">
                           <c:choose >
                              <c:when test="${page.pageNo==p}">
-                             <li class="page-item active"><a class="page-link" href="dispatchIndex?pageNo=${p}">${p} <span class="sr-only">(current)</span></a></li>
+                             <li class="page-item active"><a class="page-link" href="userIndex?pageNo=${p}">${p} <span class="sr-only">(current)</span></a></li>
                              </c:when>
                              <c:otherwise>
-                             <li class="page-item "><a class="page-link" href="dispatchIndex?pageNo=${p}">${p} <span class="sr-only">(current)</span></a></li>
+                             <li class="page-item "><a class="page-link" href="userIndex?pageNo=${p}">${p} <span class="sr-only">(current)</span></a></li>
                              </c:otherwise>
                           </c:choose>
                         </c:forEach>
                        <li class="page-item">
                        <c:if test="${page.pageNo+1<=page.totalPage}">
-                          <a class="page-link" href="dispatchIndex?pageNo=${page.pageNo+1}"><i class="mdi mdi-chevron-right"></i></a>
+                          <a class="page-link" href="userIndex?pageNo=${page.pageNo+1}"><i class="mdi mdi-chevron-right"></i></a>
                         </c:if>
                         </li>
-                        <li class="page-item "><a class="page-link" href="dispatchIndex?pageNo=${page.totalPage}">尾页<span class="sr-only">(current)</span></a></li>
+                        <li class="page-item "><a class="page-link" href="userIndex?pageNo=${page.totalPage}">尾页<span class="sr-only">(current)</span></a></li>
                       </ul>
                 </nav>
-             
                 </div>
-               
               </div>
             </div>
           </div>

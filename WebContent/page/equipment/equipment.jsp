@@ -8,10 +8,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
 <title>设备管理</title>
-<link rel="icon" href="favicon.ico" type="image/ico">
-<meta name="keywords" content="LightYear,光年,后台模板,后台管理系统,光年HTML模板">
-<meta name="description" content="LightYear是一个基于Bootstrap v3.3.7的后台管理系统的HTML模板。">
-<meta name="author" content="yinqi">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/dist/css/animate.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/dist/css/materialdesignicons.min.css">
@@ -69,7 +65,7 @@
                       <td>${equipment.responsible_person }</td>
                       <td>${equipment.remark}</td>
                       <th><a href="ToUpdateEquipmentServlet?id=${equipment.id }" class="btn btn-cyan">编辑</a></th>
-                      <th><a href="DelEquipmentServlet?id=${equipment.id }" class="btn btn-danger">删除</a></th>
+                      <th><a href="#delModal" data-toggle="modal" role="button"   data-id="${equipment.id}"  class="btn btn-danger">删除</a></th>
                     </tr>
                     
                     </c:forEach>
@@ -78,6 +74,37 @@
                 </table>
                 
                 
+                
+                
+                            <!--删除的 Modal -->
+	<div class="modal fade" id="delModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalCenterTitle"></h5>
+					<button type="button" class="close" data-dismiss="modal"
+						onclick="closeModal()" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+
+					<div class="alert alert-danger" role="alert">
+						你真的确定以及肯定删除该条记录吗？</div>
+				</div>
+				<div class="modal-footer">
+					<a href="" class="btn btn-danger" id="delbtn">残忍删除</a>
+					<button type="button" onclick="closeModal()"
+						class="btn btn-success">我再考虑一下</button>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
 
                 <nav>
                   <ul class="pagination mb-0">
@@ -113,7 +140,7 @@
           </div>
         </div>
         
-      </div>
+     
       
     </main>
     <!--End 页面主要内容-->
@@ -124,5 +151,21 @@
   <script src="${pageContext.request.contextPath}/dist/js/bootstrap.min.js"></script>
   <script src="${pageContext.request.contextPath}/dist/js/perfect-scrollbar.min.js"></script>
   <script src="${pageContext.request.contextPath}/dist/js/main.min.js"></script>
+  <script type="text/javascript">
+ $('#delModal').on('show.bs.modal', function (e) {
+	  //通过事件的relatedTarget属性 获取到被点击的按钮 
+	  var  bta =$(e.relatedTarget);
+	  //获取到我们设置在该元素中的属性  
+	  var id=bta.data("id");
+	  //将id更新到 模态框中的 a标签中 
+	  $("#delbtn").attr("href","DelEquipmentServlet?id="+id);
+	})
+	function  closeModal(){
+	 
+	 
+	 $('#delModal').modal('hide')
+  }
+	</script>
+  
 </body>
 </html>

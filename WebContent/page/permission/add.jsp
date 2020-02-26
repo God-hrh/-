@@ -8,13 +8,9 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport">
   <title>角色信息添加</title>
 
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/dist/modules/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/dist/modules/ionicons/css/ionicons.min.css">
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/dist/modules/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css">
-
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/dist/css/demo.css">
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/dist/css/style.css">
-  
+  <link href="${pageContext.request.contextPath }/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath }/dist/css/materialdesignicons.min.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath }/dist/css/style.min.css" rel="stylesheet">
   
   
 
@@ -37,26 +33,10 @@
 
      
     
-    
-     
-    
-      
-       
-      <div class="main-content">
-        <section class="section">
-          <h1 class="section-header">
-            <div>新增用户</div>
-          </h1>
-          
-          <div class="section-body">
-            
-              
-              
-              <div >
+    <main class="lyear-layout-content">
+      <div class="card-header"><h4>权限管理</h4></div>
+              <div class="card-body">
                 
-                    
-                    <!-- 添加区域的一个表单 -->
-                    
               <form action="/store/PerAddServlet " method="post">
 
 				  <div class="form-group row">
@@ -107,17 +87,49 @@
                    
                  
          </form>       
-           
-           </div>
-           </div>
+                
+              </div>
+            </div>
+    </main>
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     
+    
+      
+  
         </section>
       </div>
-      <footer class="main-footer">
-        <div class="footer-left">
-          Copyright &copy; 2020 <div class="bullet"></div> by fujun 
-        </div>
-        <div class="footer-right"></div>
-      </footer>
+      
     </div>
   </div>
 
@@ -130,17 +142,10 @@
 
 
 
-
- <script src="${pageContext.request.contextPath}/dist/modules/jquery.min.js"></script>
-  <script src="${pageContext.request.contextPath}/dist/modules/popper.js"></script>
-  <script src="${pageContext.request.contextPath}/dist/modules/tooltip.js"></script>
-  <script src="${pageContext.request.contextPath}/dist/modules/bootstrap/js/bootstrap.min.js"></script>
-  <script src="${pageContext.request.contextPath}/dist/modules/nicescroll/jquery.nicescroll.min.js"></script>
-  <script src="${pageContext.request.contextPath}/dist/modules/scroll-up-bar/dist/scroll-up-bar.min.js"></script>
-  <script src="${pageContext.request.contextPath}/dist/js/sa-functions.js"></script>
-  <script src="${pageContext.request.contextPath}/dist/js/scripts.js"></script>
-  <script src="${pageContext.request.contextPath}/dist/js/custom.js"></script>
-  <script src="${pageContext.request.contextPath}/dist/js/demo.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/dist/js/jquery.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/dist/js/perfect-scrollbar.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/dist/js/main.min.js"></script>
 
   
   

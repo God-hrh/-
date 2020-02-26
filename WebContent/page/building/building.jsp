@@ -124,7 +124,7 @@
                     <nav class="d-inline-block">
                       <ul class="pagination mb-0">
                         <li class="page-item ">
-                          <a class="page-link" href="buildingIndex?pageNo=${page.pageNo-1}" tabindex="-1"><i class="ion ion-chevron-left"></i></a>
+                          <a class="page-link" href="buildingIndex?pageNo=${page.pageNo-1}" tabindex="-1"><i class="ion ion-chevron-left">首页</i></a>
                         </li>
                         <c:forEach begin="1" end="${page.totalPage}" var="p">
                           <c:choose >
@@ -137,7 +137,7 @@
                           </c:choose>
                         </c:forEach>
                        <li class="page-item">
-                          <a class="page-link" href="buildingIndex?pageNo=${page.pageNo+1}"><i class="ion ion-chevron-right"></i></a>
+                          <a class="page-link" href="buildingIndex?pageNo=${page.pageNo+1}"><i class="ion ion-chevron-right">尾页</i></a>
                         </li>
                       </ul>
                     </nav>

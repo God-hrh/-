@@ -10,26 +10,33 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.store.pojo.Building;
+import com.store.pojo.Page;
 import com.store.pojo.Repair;
+import com.store.pojo.SysPermission;
+import com.store.pojo.SysRole;
 import com.store.pojo.SysUser;
 import com.store.service.BuildingService;
 import com.store.service.BuildingServiceImpl;
+import com.store.service.PermissionService;
+import com.store.service.PermissionServiceImpl;
 import com.store.service.RepairService;
 import com.store.service.RepairServiceImpl;
+import com.store.service.RoleService;
+import com.store.service.RoleServiceImpl;
 import com.store.service.UserService;
 import com.store.service.UserServiceImpl;
 
 /**
  * Servlet implementation class BuildingIndexServlet
  */
-@WebServlet("/dispatchUpdate")
-public class DispatchUpdateServlet extends HttpServlet {
+@WebServlet("/repairs")
+public class RepairIndexServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DispatchUpdateServlet() {
+    public RepairIndexServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,28 +45,22 @@ public class DispatchUpdateServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
+		//创建一个分页对象 
+		Page page=new Page(); 
+		String pageNo=request.getParameter("pageNo");
+		if(pageNo!=null) {
+			page.setPageNo(Integer.parseInt(pageNo));
+		}
 		
-		Repair  repair=new Repair();
-		
-		//添加 Servelt
-		//获取到用户传入参数  维修单id
-		String id=request.getParameter("id");
-		//获取到用户传入参数  指派人id
-		String assignId=request.getParameter("assignId");
-	    repair.setId(Integer.parseInt(id));
-    	repair.setAssignId(assignId);
-		
-		// 设置 状态更新   更新成1
-		repair.setStatus(1);
-		// accepttime 受理时间需要更新   更新成当前时间 
-		repair.setAcceptTime("now");
-		
+		//查询所有的区域信息  ，显示到页面中 
+		  //服务层的实现类对象
 		RepairService  rs=new RepairServiceImpl();
-		//通过服务器更新数据
-		rs.updateRepair(repair);
-	      //页面跳转
-	      response.sendRedirect("repairIndex");
+		 //定义pageSize 和page
+		 List<Repair> list= rs.queryAll(page.getPageSize(),page.getPageNo(),null);
+		 page.setAllCount(rs.getAllCount(null));
+		 request.setAttribute("list", list);
+		 request.setAttribute("page",page);
+		 request.getRequestDispatcher("page/repair/list.jsp").forward(request, response);
 	}
 
 	/**

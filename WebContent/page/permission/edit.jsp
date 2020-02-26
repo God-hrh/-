@@ -35,19 +35,19 @@
       <jsp:include page="/page/left.jsp"></jsp:include>
     
      
+      <main class="lyear-layout-content">
+      
+      <div class="container-fluid">
+        
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header"><h4>权限编辑</h4></div>
+              <div class="card-body">
+              
+                <a href="${pageContext.request.contextPath}/perIndex" class="btn btn-default">返回</a>
      
-     
-     
-     
-      <div class="main-content">
-        <section class="section">
-          <h1 class="section-header">
-            <div>修改用户</div>
-          </h1>
-          
-          <div class="section-body">
-           <div >
-                
+   
                     
                     <!-- 添加区域的一个表单 -->
                     
@@ -55,7 +55,7 @@
 
   <div class="form-group row">
   <div class="col-sm-2"></div>
-    <label for="colFormLabelLg" class="col-sm-2 h1 col-form-label col-form-label-lg">权限名称</label>
+    <label for="colFormLabelLg" class="col-sm-2  col-form-label col-form-label-lg">权限名称</label>
     <div class="col-sm-4">
       <input type="hidden"   value="${p.id }" name="id"  >
       <input type="text"   value="${p.name }" name="permission_name"  class="form-control form-control-lg" id="colFormLabelLg" >
@@ -64,7 +64,7 @@
 
 <div class="form-group row">
   <div class="col-sm-2"></div>
-    <label for="colFormLabelLg" class="col-sm-2 h1 col-form-label col-form-label-lg">权限类型</label>
+    <label for="colFormLabelLg" class="col-sm-2  col-form-label col-form-label-lg">权限类型</label>
     <div class="col-sm-4">
      <input type="text"   value="${p.type }" name="permission_type"  class="form-control form-control-lg" id="colFormLabelLg" >
     </div>
@@ -72,7 +72,7 @@
   
   <div class="form-group row">
   <div class="col-sm-2"></div>
-    <label for="colFormLabelLg" class="col-sm-2 h1 col-form-label col-form-label-lg">菜单地址</label>
+    <label for="colFormLabelLg" class="col-sm-2  col-form-label col-form-label-lg">菜单地址</label>
     <div class="col-sm-4">
       <input type="text"   value="${p.url }" name="permission_url"  class="form-control form-control-lg" id="colFormLabelLg" >
     </div>
@@ -80,7 +80,7 @@
   
    <div class="form-group row">
   <div class="col-sm-2"></div>
-    <label for="colFormLabelLg" class="col-sm-2 h1 col-form-label col-form-label-lg">菜单排序</label>
+    <label for="colFormLabelLg" class="col-sm-2  col-form-label col-form-label-lg">菜单排序</label>
     <div class="col-sm-4">
       <input type="text"   value="${p.sortstring }" name="permission_sort"  class="form-control form-control-lg" id="colFormLabelLg" >
     </div>
@@ -98,16 +98,16 @@
 				  </div>           
          </form>       
            
-           </div>
-           </div>
-        </section>
-      </div>
-      <footer class="main-footer">
-        <div class="footer-left">
-          Copyright &copy; 2020 <div class="bullet"></div> by fujun 
+         </div>
+               
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="footer-right"></div>
-      </footer>
+        
+     
+      
+    </main>
     </div>
   </div>
 

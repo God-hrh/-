@@ -15,7 +15,7 @@ import com.store.service.EquipmentServiceImpl;
  * Servlet implementation class DelEquipmentServlet
  */
 @WebServlet("/DelEquipmentServlet")
-public class DelEquipmentServlet extends HttpServlet {
+public class EquipmentDelServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
    

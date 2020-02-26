@@ -25,19 +25,16 @@
       <jsp:include page="/page/left.jsp"></jsp:include>
     <!--页面主要内容-->
     <main class="lyear-layout-content">
-      <div class="container-fluid">
-       <div class="main-content">
-        <section class="section">
-          <h1 class="section-header">
-            <div>权限管理</div>
-          </h1>
-          <div class="section-body">
-              <div >
-                <div class="card">
-                  <div class="card-header">
-<a href="${pageContext.request.contextPath}/page/permission/add.jsp"  class="btn btn-success">新增权限</a>                  </div>
-                  <div class="card-body p-0">
-                    <div class="table-responsive">
+    
+          <div class="container-fluid">
+        
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header"><h4>权限管理</h4></div>
+              <div class="card-body">
+              
+                <a href="${pageContext.request.contextPath}/page/permission/add.jsp"  class="btn btn-success">新增权限</a>
                       <table class="table table-striped">
                         <tr>
                          <th>权限id</th>
@@ -56,16 +53,45 @@
                           <td>${permission.url}</td>
                            <td>${permission.percode}</td>
                           <td>${permission.sortstring}</td>
-<td><a href="${pageContext.request.contextPath}/ToUpdateServlet?id=${permission.id}" class="btn btn-sm btn-info">编辑</a><a  href="${pageContext.request.contextPath}/PerDelServlet?id=${permission.id}" class="btn btn-sm btn-danger">删除</a></td>                       </tr>
+<td><a href="${pageContext.request.contextPath}/ToUpdateServlet?id=${permission.id}" class="btn btn-sm btn-info">编辑</a>
+<a  href="#delModal" class="btn btn-sm btn-danger" data-id="${permission.id}" data-toggle="modal" >删除</a></td>                       </tr>
                         </c:forEach>
                       </table>
-                    </div>
-                  </div>
+                
+                
+                
+                            <!--删除的 Modal -->
+	<div class="modal fade" id="delModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalCenterTitle"></h5>
+					<button type="button" class="close" data-dismiss="modal"
+						onclick="closeModal()" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+
+					<div class="alert alert-danger" role="alert">
+						你真的确定以及肯定删除该条记录吗？</div>
+				</div>
+				<div class="modal-footer">
+					<a href="" class="btn btn-danger" id="delbtn">残忍删除</a>
+					<button type="button" onclick="closeModal()"
+						class="btn btn-success">我再考虑一下</button>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
                 <div class="card-footer text-right">
                     <nav class="d-inline-block">
                       <ul class="pagination mb-0">
                         <li class="page-item ">
-                          <a class="page-link" href="perIndex?pageNo=${page.pageNo-1}" tabindex="-1"><i class="ion ion-chevron-left"></i></a>
+                          <a class="page-link" href="perIndex?pageNo=${page.pageNo-1}" tabindex="-1"><i class="ion ion-chevron-left">首页</i></a>
                         </li>
                         <c:forEach begin="1" end="${page.totalPage}" var="p">
                           <c:choose >
@@ -78,18 +104,19 @@
                           </c:choose>
                         </c:forEach>
                        <li class="page-item">
-                          <a class="page-link" href="perIndex?pageNo=${page.pageNo+1}"><i class="ion ion-chevron-right"></i></a>
+                          <a class="page-link" href="perIndex?pageNo=${page.pageNo+1}"><i class="ion ion-chevron-right">尾页</i></a>
                         </li>
                       </ul>
                     </nav>
                   </div>
+
                 </div>
+               
               </div>
-           </div>
-        </section>
-      </div>
-      </div>
-      
+            </div>
+          </div>
+        </div>
+    
     </main>
     <!--End 页面主要内容-->
   </div>
@@ -99,7 +126,21 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/dist/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/dist/js/perfect-scrollbar.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/dist/js/main.min.js"></script>
-
+<script type="text/javascript">
+ $('#delModal').on('show.bs.modal', function (e) {
+	  //通过事件的relatedTarget属性 获取到被点击的按钮 
+	  var  bta =$(e.relatedTarget);
+	  //获取到我们设置在该元素中的属性  
+	  var id=bta.data("id");
+	  //将id更新到 模态框中的 a标签中 
+	  $("#delbtn").attr("href","PerDelServlet?id="+id);
+	})
+	function  closeModal(){
+	 
+	 
+	 $('#delModal').modal('hide')
+  }
+	</script>
 
 
 </body>

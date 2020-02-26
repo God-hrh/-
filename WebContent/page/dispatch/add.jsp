@@ -135,11 +135,6 @@
            </div>
         </section>
       </div>
-      <footer class="main-footer">
-        <div class="footer-left">
-          Copyright &copy; 2020 <div class="bullet"></div> by fujun 
-        </div>
-        <div class="footer-right"></div>
       </footer>
     </div>
   </div>
@@ -153,14 +148,7 @@
 
 
 
-
- <script src="${pageContext.request.contextPath}/dist/modules/jquery.min.js"></script>
-  <script src="${pageContext.request.contextPath}/dist/modules/popper.js"></script>
-  <script src="${pageContext.request.contextPath}/dist/modules/tooltip.js"></script>
-  <script src="${pageContext.request.contextPath}/dist/modules/bootstrap/js/bootstrap.min.js"></script>
-  <script src="${pageContext.request.contextPath}/dist/modules/nicescroll/jquery.nicescroll.min.js"></script>
-  <script src="${pageContext.request.contextPath}/dist/modules/scroll-up-bar/dist/scroll-up-bar.min.js"></script>
-  <script src="${pageContext.request.contextPath}/dist/js/sa-functions.js"></script>
+<script src="${pageContext.request.contextPath}/dist/js/sa-functions.js"></script>
   <script src="${pageContext.request.contextPath}/dist/js/scripts.js"></script>
   <script src="${pageContext.request.contextPath}/dist/js/custom.js"></script>
   <script src="${pageContext.request.contextPath}/dist/js/demo.js"></script>

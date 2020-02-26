@@ -16,7 +16,7 @@ import com.store.pojo.Equipment;
  * Servlet implementation class UpdateEquipmentServlet
  */
 @WebServlet("/UpdateEquipmentServlet")
-public class UpdateEquipmentServlet extends HttpServlet {
+public class EquipmentUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
    

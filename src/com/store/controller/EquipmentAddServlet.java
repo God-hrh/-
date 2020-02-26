@@ -16,7 +16,7 @@ import com.store.pojo.Page;
  * Servlet implementation class AddEquipmentServlet
  */
 @WebServlet("/AddEquipmentServlet")
-public class AddEquipmentServlet extends HttpServlet {
+public class EquipmentAddServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
    
