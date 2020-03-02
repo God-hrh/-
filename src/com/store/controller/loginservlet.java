@@ -50,6 +50,7 @@ public class loginservlet extends HttpServlet {
 		if (!captcha.equals(request.getSession().getAttribute("googleCode"))) {
 			request.setAttribute("msg", "验证码错误");
 			request.getRequestDispatcher("/page/login.jsp").forward(request, response);
+			return;
 		}
 		if (User!=null) {
 			if (User.getUserPwd().equals(psw)) {
@@ -63,8 +64,8 @@ public class loginservlet extends HttpServlet {
 				  }
 				  User.setPermissionList(permissionList);
 				  request.getSession().setAttribute("user", User);
-			 
-				request.getRequestDispatcher("EquipmentServlet").forward(request, response);
+				  
+				request.getRequestDispatcher("/page/index.jsp").forward(request, response);
 			}else {
 				request.setAttribute("msg", "密码错误");
 				request.getRequestDispatcher("/page/login.jsp").forward(request, response);

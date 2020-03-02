@@ -48,7 +48,7 @@ public class UserOneServlet extends HttpServlet {
 		SysUser user=us.querySysUserById(sid);
 		List<SysRole> list= rs.queryAll();
 		
-		request.setAttribute("user", user);
+		request.setAttribute("us", user);
 		request.setAttribute("list", list);
 		//将所有的角色也转递页面中去
 		request.getRequestDispatcher("/page/user/edit.jsp").forward(request, response);

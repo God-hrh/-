@@ -7,6 +7,7 @@
 <head>
 <meta charset="utf-8" />
 <title>登录</title>
+ <link rel="icon" href="https://im.qq.com/favicon.ico">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/dist/css/index.css" />
 </head>
 
@@ -27,7 +28,7 @@
 		<div class="captchadiv">
 		<div class="line captcha">
 			<img class="smallImg" src="${pageContext.request.contextPath }/dist/images/icon-5.png" />
-			<input placeholder="请输入验证码" type="password"  name = "captcha"/>
+			<input placeholder="请输入验证码" type="password"  name = "captcha" style="width: 232px;"/>
 		</div>
 		<div>
     		<img class="capImg" alt="" src="${pageContext.request.contextPath }/img.jpg">
@@ -37,7 +38,7 @@
 	
 		<button type="submit" class="logBut">登&nbsp;&nbsp;录</button>
 				
-		<%= request.getAttribute("msg")!=null?request.getAttribute("msg"):"" %>
+		 <%= request.getAttribute("msg")!=null?request.getAttribute("msg"):"" %> 
 		
 		
 		 

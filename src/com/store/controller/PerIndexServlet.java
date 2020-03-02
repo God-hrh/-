@@ -43,18 +43,19 @@ public class PerIndexServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//创建一个分页对象 
-		Page page=new Page(); 
+		Page page=new Page();
+		//查询所有的区域信息  ，显示到页面中 
+		  //服务层的实现类对象
+		PermissionService  ps=new PermissionServiceImpl();
+		 //定义pageSize 和page
+		page.setAllCount(ps.getAllCount());
 		String pageNo=request.getParameter("pageNo");
 		if(pageNo!=null) {
 			page.setPageNo(Integer.parseInt(pageNo));
 		}
 		
-		//查询所有的区域信息  ，显示到页面中 
-		  //服务层的实现类对象
-		PermissionService  ps=new PermissionServiceImpl();
-		 //定义pageSize 和page
+		
 		 List<SysPermission> list= ps.queryAll(page.getPageSize(),page.getPageNo());
-		 page.setAllCount(ps.getAllCount());
 		 request.setAttribute("list", list);
 		 request.setAttribute("page",page);
 		 request.getRequestDispatcher("page/permission/list.jsp").forward(request, response);

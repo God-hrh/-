@@ -64,7 +64,7 @@ public class DispatchIndexServlet extends HttpServlet {
 		//我们传递一个查询的参数  
 		Map<String,Object> params=new HashMap<String,Object>();
 		params.put("status", 0);
-		 
+		//这里直接把参数params的值改成0可以吗？  后期调试
 		List<Repair> list= rs.queryAll(page.getPageSize(),page.getPageNo(),params);
 		 page.setAllCount(rs.getAllCount(params));
 		 request.setAttribute("list", list);

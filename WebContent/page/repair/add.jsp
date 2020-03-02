@@ -10,10 +10,6 @@
 	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
 <title>设备报修</title>
 <link rel="icon" href="favicon.ico" type="image/ico">
-<meta name="keywords" content="LightYear,光年,后台模板,后台管理系统,光年HTML模板">
-<meta name="description"
-	content="LightYear是一个基于Bootstrap v3.3.7的后台管理系统的HTML模板。">
-<meta name="author" content="yinqi">
 <link
 	href="${pageContext.request.contextPath}/dist/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -52,7 +48,7 @@
 								id="FormControlSelect">
 								<option>请选择设备名称</option>
 								<c:forEach items="${list1}" var="equip">
-									<option value="${equip.id}">${equip.equipment_name}+id=${equip.id}</option>
+									<option value="${equip.id}">${equip.equipment_name}</option>
 								</c:forEach>
 							</select>
 						</div>
@@ -93,9 +89,12 @@
 
 					<div class="row col-sm-offset-2">
 						<div class="form-group col-sm-5 col-sm-offset-2">
-							<label for="example-nf-password">报修人名</label> <input type="text"
-								name="equipment_user" class="form-control form-control-lg"
-								id="colFormLabelLg" value="${user.userName }"  readonly="readonly"
+							<label for="example-nf-password">报修人名</label>
+							<input type="hidden" name="equipment_user" value="${user.userName }" >
+							
+							 <input type="text"
+								class="form-control form-control-lg disabled" disabled
+								id="colFormLabelLg" value="${user.userName }" 
 								>
 						</div>
 					</div>

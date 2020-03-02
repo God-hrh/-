@@ -1,70 +1,66 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
-  <meta charset="UTF-8">
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport">
-  <title>角色信息添加</title>
-
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/dist/modules/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/dist/modules/ionicons/css/ionicons.min.css">
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/dist/modules/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css">
-
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/dist/css/demo.css">
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/dist/css/style.css">
-  
-  
-  
-
-  
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>智慧校园(Light Year Admin)后台管理系统模板</title>
+<link rel="icon" href="favicon.ico"
+	type="${pageContext.request.contextPath }/dist/image/ico">
+<meta name="keywords" content="LightYear,光年,后台模板,后台管理系统,光年HTML模板">
+<meta name="description"
+	content="LightYear是一个基于Bootstrap v3.3.7的后台管理系统的HTML模板。">
+<meta name="author" content="yinqi">
+<link
+	href="${pageContext.request.contextPath }/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<link
+	href="${pageContext.request.contextPath }/dist/css/materialdesignicons.min.css"
+	rel="stylesheet">
+<link href="${pageContext.request.contextPath }/dist/css/style.min.css"
+	rel="stylesheet">
 </head>
 
-<body data-theme="translucent" data-logobg="color_8" data-headerbg="color_8" data-sidebarbg="color_3" >
-  <div id="app">
-    <div class="main-wrapper">
-      <div class="navbar-bg"></div>
-     
-  
-     
-     
-           <!-- 使用引入语句 ，将导航也页面引入进来 -->
-      <jsp:include page="/page/nav.jsp"></jsp:include>
-       <!-- 使用引入语句 ，引入左边的导航 -->
-      <jsp:include page="/page/left.jsp"></jsp:include>
-    
+<body data-theme="translucent" data-logobg="color_8" data-headerbg="color_8" data-sidebarbg="color_3">
+	<div class="lyear-layout-web">
+		<div class="lyear-layout-container">
+			<!--左侧导航-->
 
-     
-    
-    
-     
-    
-      
-       
-      <div class="main-content">
-        <section class="section">
-          <h1 class="section-header">
-            <div>新增用户</div>
-          </h1>
-          
-          <div class="section-body">
-            
-              
-              
-              <div >
-                
-                    
-                    <!-- 添加区域的一个表单 -->
-                    
-              <form action=" " method="post">
+			<jsp:include page="/page/left.jsp"></jsp:include>
+
+
+			<!-- 引入上面的导航栏 -->
+
+			<jsp:include page="/page/nav.jsp"></jsp:include>
+
+
+
+			<!--页面主要内容-->
+			<main class="lyear-layout-content">
+
+			<div class="container-fluid">
+
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="card">
+							<div class="card-header">
+								<h4>新增角色</h4>
+							</div>
+
+							
+              <form action="/store/RoleAddServlet" method="post">
+
+				
 
 				  <div class="form-group row">
 				  
 				   <div class="col-md-2"></div>
 				    <label  for="colFormLabelLg" class="col-md-2  col-form-label-lg">角色名称</label>
 				    <div class="col-md-4">
-				      <input type="text"  name="buildingName"  class="form-control form-control-lg" id="colFormLabelLg" placeholder="角色名称">
+				      <input type="text"  name="roleName"  class="form-control form-control-lg" id="colFormLabelLg" placeholder="角色名称">
 				    </div>
 				  </div>
 				  
@@ -82,42 +78,32 @@
                    
                  
          </form>       
-           
-           </div>
-           </div>
-        </section>
-      </div>
-      <footer class="main-footer">
-        <div class="footer-left">
-          Copyright &copy; 2020 <div class="bullet"></div> by fujun 
-        </div>
-        <div class="footer-right"></div>
-      </footer>
-    </div>
-  </div>
+                
+              </div>
+            </div>
+
+						
+						</div>
+					</div>
+				</div>
+
+			</div>
+		
+
+		</main>
+		
+	</div>
+	</div>
+
+	<script type="text/javascript"
+		src="${pageContext.request.contextPath}/dist/js/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="${pageContext.request.contextPath}/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript"
+		src="${pageContext.request.contextPath}/dist/js/perfect-scrollbar.min.js"></script>
+	<script type="text/javascript"
+		src="${pageContext.request.contextPath}/dist/js/main.min.js"></script>
 
 
-
-
-
-
-
-
-
-
-
- <script src="${pageContext.request.contextPath}/dist/modules/jquery.min.js"></script>
-  <script src="${pageContext.request.contextPath}/dist/modules/popper.js"></script>
-  <script src="${pageContext.request.contextPath}/dist/modules/tooltip.js"></script>
-  <script src="${pageContext.request.contextPath}/dist/modules/bootstrap/js/bootstrap.min.js"></script>
-  <script src="${pageContext.request.contextPath}/dist/modules/nicescroll/jquery.nicescroll.min.js"></script>
-  <script src="${pageContext.request.contextPath}/dist/modules/scroll-up-bar/dist/scroll-up-bar.min.js"></script>
-  <script src="${pageContext.request.contextPath}/dist/js/sa-functions.js"></script>
-  <script src="${pageContext.request.contextPath}/dist/js/scripts.js"></script>
-  <script src="${pageContext.request.contextPath}/dist/js/custom.js"></script>
-  <script src="${pageContext.request.contextPath}/dist/js/demo.js"></script>
-
-  
-  
 </body>
 </html>

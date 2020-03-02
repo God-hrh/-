@@ -29,9 +29,9 @@ public class RoleServiceImpl implements RoleService{
 	}
 
 	@Override
-	public boolean delSysRole(int id) {
+	public boolean delSysRole(String id) {
 		// TODO Auto-generated method stub
-		return delSysRole(id);
+		return roleDao.delSysRole(id);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class RoleServiceImpl implements RoleService{
 	}
 
 	@Override
-	public SysRole querySysRoleById(int id) {
+	public SysRole querySysRoleById(String id) {
 		// TODO Auto-generated method stub
 		return roleDao.querySysRoleById(id);
 	}

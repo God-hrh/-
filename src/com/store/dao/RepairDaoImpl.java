@@ -235,6 +235,26 @@ public class RepairDaoImpl  implements RepairDao {
 			params.add(param.get("status"));
 		}
 		
+		//通过维修人进行查询 
+		if(param!=null &&  param.get("assignid")!=null) {
+			sql+=" and  assignid= ?";
+			params.add(param.get("assignid"));
+		}
+		//模糊查询的条件  --设备名称 
+				if(param!=null && param.get("equipmentName")!=null) {
+					sql+=" and equipment.equipment_name like ?";
+					params.add("%"+param.get("equipmentName")+"%");
+				}
+				//模糊查询的条件  --报修人 
+				if(param!=null && param.get("userName")!=null) {
+					sql+=" and sys_user.username like ?";
+					params.add("%"+param.get("userName")+"%");
+				}
+		sql+=" order by starttime desc  limit ?,?";
+		params.add((page-1)*pageSize);
+		params.add(pageSize);
+		
+		
 		conn=DBUtil.getConnection();
 		try {
 			stmt=conn.prepareStatement(sql);
@@ -277,14 +297,92 @@ public class RepairDaoImpl  implements RepairDao {
 
 	@Override
 	public List<Repair> queryAll() {
-		// TODO Auto-generated method stub
-		return null;
+		String sql="SELECT `repair`.id,`repair`.buildingid,`repair`.userid,`repair`.content,`repair`.starttime,`repair`.endtime,`repair`.assignid,`repair`.`status`,`repair`.equipmentid,`repair`.imgurl,`repair`.addr,`repair`.accepttime,`repair`.repaircontent,`repair`.repairno,equipment.equipment_name,building.buildingName,sys_user.username,sys2.username assignname FROM `repair` INNER JOIN equipment ON `repair`.equipmentid = equipment.id INNER JOIN building ON `repair`.buildingid = building.id INNER JOIN sys_user ON `repair`.userid = sys_user.id LEFT JOIN sys_user AS sys2 ON `repair`.assignid = sys2.id   where 1=1 ";
+		List<Repair> list=new ArrayList<Repair>();
+		
+		conn=DBUtil.getConnection();
+		try {
+			stmt=conn.prepareStatement(sql);
+			
+			rs=stmt.executeQuery();
+			while(rs.next()) {
+				Repair  repair=new Repair();
+				repair.setId(rs.getInt("id"));
+				repair.setBuildingId(rs.getInt("buildingid"));
+				repair.setUserId(rs.getString("userid"));
+				repair.setContent(rs.getString("content"));
+				repair.setStartTime(rs.getString("starttime"));
+				repair.setEndTime(rs.getString("endtime"));
+				repair.setAssignId(rs.getString("assignid"));
+				repair.setStatus(rs.getInt("status"));
+				repair.setEquipmentId(rs.getInt("equipmentid"));
+				repair.setImgUrl(rs.getString("imgurl"));
+				repair.setAddr(rs.getString("addr"));
+				repair.setAcceptTime(rs.getString("accepttime"));
+				repair.setRepairContent(rs.getString("repaircontent"));
+				repair.setRepairNo(rs.getString("repairno"));
+				repair.setEquipmentName(rs.getString("equipment_name"));
+				repair.setUserName(rs.getString("username"));
+				repair.setBuildingName(rs.getString("buildingName"));
+				repair.setAssignName(rs.getString("assignname"));
+				list.add(repair);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			DBUtil.close(conn, stmt, rs);
+		}
+		return list;
 	}
 
 	@Override
 	public int getAllCount(Map<String, Object> param) {
-		// TODO Auto-generated method stub
+		String sql="SELECT count(*) FROM `repair` INNER JOIN equipment ON `repair`.equipmentid = equipment.id INNER JOIN building ON `repair`.buildingid = building.id INNER JOIN sys_user ON `repair`.userid = sys_user.id LEFT JOIN sys_user AS sys2 ON `repair`.assignid = sys2.id   where 1=1";
+		//查询界面 增加  自定义 条件查询功能 
+				List<Object> params=new ArrayList<Object>();
+				//自定义参数的判断 
+				//如果状态的参数不为空 ，怎需要设置条件查询语句
+				if(param!=null &&param.get("status")!=null) {
+					sql+=" and  status= ?";
+					params.add(param.get("status"));
+				}
+				//通过维修人进行查询 
+				if(param!=null &&  param.get("assignid")!=null) {
+					sql+=" and  assignid= ?";
+					params.add(param.get("assignid"));
+				}
+				//模糊查询的条件  --设备名称 
+				if(param!=null && param.get("equipmentName")!=null) {
+					sql+=" and equipment.equipment_name like ?";
+					params.add("%"+param.get("equipmentName")+"%");
+				}
+				//模糊查询的条件  --报修人 
+				if(param!=null && param.get("userName")!=null) {
+					sql+=" and sys_user.username like ?";
+					params.add("%"+param.get("userName")+"%");
+				}
+				
+				conn=DBUtil.getConnection();
+				try {
+					stmt=conn.prepareStatement(sql);
+					for(int index=0;index<params.size();index++) {
+						stmt.setObject(index+1, params.get(index));
+					}
+					rs=stmt.executeQuery();
+					if(rs.next()) {
+					  return rs.getInt(1);
+					}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}finally {
+					DBUtil.close(conn, stmt, rs);
+				}
+			
 		return 0;
+	
 	}
 
 }

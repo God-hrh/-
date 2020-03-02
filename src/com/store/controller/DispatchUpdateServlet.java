@@ -59,7 +59,7 @@ public class DispatchUpdateServlet extends HttpServlet {
 		//通过服务器更新数据
 		rs.updateRepair(repair);
 	      //页面跳转
-	      response.sendRedirect("repairIndex");
+	      response.sendRedirect("dispatchIndex");
 	}
 
 	/**

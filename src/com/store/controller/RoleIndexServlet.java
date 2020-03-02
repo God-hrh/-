@@ -26,10 +26,6 @@ import com.store.service.UserServiceImpl;
 @WebServlet("/roleIndex")
 public class RoleIndexServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public RoleIndexServlet() {
         super();
         // TODO Auto-generated constructor stub

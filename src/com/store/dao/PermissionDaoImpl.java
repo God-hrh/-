@@ -252,7 +252,7 @@ String sql="SELECT sys_permission.id,sys_permission.`name`,sys_permission.type,s
 
 	@Override
 	public int getAllCount() {
-		// 学生作业
+		
 		String sql="select count(id) from sys_permission ";
 		conn=DBUtil.getConnection();
 		try {

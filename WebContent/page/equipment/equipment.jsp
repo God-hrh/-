@@ -37,7 +37,7 @@
               <div class="card-header"><h4>设备管理</h4></div>
               <div class="card-body">
               
-                <a href="${pageContext.request.contextPath}/page/equipment/addequipment.jsp" class="btn btn-success">新增设备</a>
+                <a href="${pageContext.request.contextPath}/page/equipment/addequipment.jsp" class="btn btn-success btn-w-md">新增设备</a>
                 <table class="table">
                   <thead>
                     <tr>
@@ -76,7 +76,9 @@
                 
                 
                 
-                            <!--删除的 Modal -->
+                        
+                <!-- 删除的模态框 -->
+               <!--删除的 Modal -->
 	<div class="modal fade" id="delModal" tabindex="-1" role="dialog"
 		aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered" role="document">
@@ -91,12 +93,12 @@
 				<div class="modal-body">
 
 					<div class="alert alert-danger" role="alert">
-						你真的确定以及肯定删除该条记录吗？</div>
+						主人你真的要抛弃我吗＞﹏＜</div>
 				</div>
 				<div class="modal-footer">
-					<a href="" class="btn btn-danger" id="delbtn">残忍删除</a>
+					<a href="" class="btn btn-danger" id="delbtn">一路走好</a>
 					<button type="button" onclick="closeModal()"
-						class="btn btn-success">我再考虑一下</button>
+						class="btn btn-success">我再想想</button>
 
 				</div>
 			</div>
@@ -106,14 +108,16 @@
 
 
 
-                <nav>
-                  <ul class="pagination mb-0">
+
+
+ <nav class="text-right">
+                  <ul class="pagination mb-0 ">
                   <li class="page-item "><a class="page-link" href="EquipmentServlet?pageNo=1">首页<span class="sr-only">(current)</span></a></li>
-                        <li class="page-item ">
+                       <%--  <li class="page-item ">
                         <c:if test="${page.pageNo>1}">
-                          <a class="page-link" href="EquipmentServlet?pageNo=${page.pageNo-1}" tabindex="-1"><i class="mdi mdi-chevron-left"></i></a>
+                          <a class="page-link" href="dispatchIndex?pageNo=${page.pageNo-1}" tabindex="-1"><i class="mdi mdi-chevron-left"></i></a>
                         </c:if>
-                        </li>
+                        </li> --%>
                         <c:forEach begin="1" end="${page.totalPage}" var="p">
                           <c:choose >
                              <c:when test="${page.pageNo==p}">
@@ -124,15 +128,18 @@
                              </c:otherwise>
                           </c:choose>
                         </c:forEach>
-                       <li class="page-item">
+                       <%-- <li class="page-item">
                        <c:if test="${page.pageNo+1<=page.totalPage}">
-                          <a class="page-link" href="EquipmentServlet?pageNo=${page.pageNo+1}"><i class="mdi mdi-chevron-right"></i></a>
+                          <a class="page-link" href="dispatchIndex?pageNo=${page.pageNo+1}"><i class="mdi mdi-chevron-right"></i></a>
                         </c:if>
-                        </li>
+                        </li> --%>
                         <li class="page-item "><a class="page-link" href="EquipmentServlet?pageNo=${page.totalPage}">尾页<span class="sr-only">(current)</span></a></li>
                       </ul>
                 </nav>
-             
+
+
+
+
                 </div>
                
               </div>

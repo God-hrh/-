@@ -7,6 +7,8 @@
        <!--左侧导航-->
     <aside class="lyear-layout-sidebar">
       <!-- logo -->
+       <link rel="icon" href="https://im.qq.com/favicon.ico">
+      
       <div id="logo" class="sidebar-header" >
       <div class="logo" style="width: 240px;
 	height: 64px;">
@@ -20,10 +22,10 @@
         
         <nav class="sidebar-main">
           <ul class="nav nav-drawer">
-            <li class="nav-item"> <a href="index.html"><i class="mdi mdi-home"></i> 后台首页</a> </li>
+            <li class="nav-item"> <a href="${pageContext.request.contextPath}/page/index.jsp"><i class="mdi mdi-home"></i> 后台首页</a> </li>
             <c:forEach items="${user.permissionList}" var="permission">
             <li class="nav-item">
-              <a href="${pageContext.request.contextPath}${permission.url}"><i class="mdi mdi-home"></i><span>${permission.name}</span></a>
+              <a href="${pageContext.request.contextPath}${permission.url}"><i class="mdi ${permission.percode }"></i><span>${permission.name}</span></a>
             </li>
             
         </c:forEach>

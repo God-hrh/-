@@ -34,7 +34,7 @@
               <div class="card-header"><h4>权限管理</h4></div>
               <div class="card-body">
               
-                <a href="${pageContext.request.contextPath}/page/permission/add.jsp"  class="btn btn-success">新增权限</a>
+                <a href="${pageContext.request.contextPath}/page/permission/add.jsp"  class="btn btn-success btn-w-md">新增权限</a>
                       <table class="table table-striped">
                         <tr>
                          <th>权限id</th>
@@ -60,7 +60,9 @@
                 
                 
                 
-                            <!--删除的 Modal -->
+                         
+                <!-- 删除的模态框 -->
+               <!--删除的 Modal -->
 	<div class="modal fade" id="delModal" tabindex="-1" role="dialog"
 		aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered" role="document">
@@ -75,23 +77,24 @@
 				<div class="modal-body">
 
 					<div class="alert alert-danger" role="alert">
-						你真的确定以及肯定删除该条记录吗？</div>
+						确定要删除该权限吗？</div>
 				</div>
 				<div class="modal-footer">
-					<a href="" class="btn btn-danger" id="delbtn">残忍删除</a>
+					<a href="" class="btn btn-danger" id="delbtn">确定一定以及肯定</a>
 					<button type="button" onclick="closeModal()"
-						class="btn btn-success">我再考虑一下</button>
+						class="btn btn-success">我再想想</button>
 
 				</div>
 			</div>
 		</div>
 	</div>
 
+
                 <div class="card-footer text-right">
                     <nav class="d-inline-block">
                       <ul class="pagination mb-0">
                         <li class="page-item ">
-                          <a class="page-link" href="perIndex?pageNo=${page.pageNo-1}" tabindex="-1"><i class="ion ion-chevron-left">首页</i></a>
+										                  <li class="page-item "><a class="page-link" href="perIndex?pageNo=1">首页<span class="sr-only">(current)</span></a></li>
                         </li>
                         <c:forEach begin="1" end="${page.totalPage}" var="p">
                           <c:choose >
@@ -104,7 +107,7 @@
                           </c:choose>
                         </c:forEach>
                        <li class="page-item">
-                          <a class="page-link" href="perIndex?pageNo=${page.pageNo+1}"><i class="ion ion-chevron-right">尾页</i></a>
+										                  <li class="page-item "><a class="page-link" href="perIndex?pageNo=${page.totalPage }">尾页<span class="sr-only">(current)</span></a></li>
                         </li>
                       </ul>
                     </nav>
@@ -136,8 +139,6 @@
 	  $("#delbtn").attr("href","PerDelServlet?id="+id);
 	})
 	function  closeModal(){
-	 
-	 
 	 $('#delModal').modal('hide')
   }
 	</script>

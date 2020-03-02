@@ -35,18 +35,17 @@
                   <div class="row col-sm-offset-2">
                   <div class="form-group col-sm-5 col-sm-offset-2">
                     <label for="example-nf-email">用户编号</label>
-                    <input type="hidden"   value="${user.id }" name="id"  >
- 			     <input type="text"   value="${user.userCode }" name="userCode"  class="form-control form-control-lg" id="colFormLabelLg" >
+                    <input type="hidden"   value="${us.id }" name="id"  >
+ 			     <input type="text"   value="${us.userCode }" name="userCode"  class="form-control form-control-lg" id="colFormLabelLg" >
  	         </div>
                   </div>
                   
                   <div class="row col-sm-offset-2">
                   <div class="form-group col-sm-5 col-sm-offset-2">
                     <label for="example-nf-password">用户姓名</label>
-                   <input type="text"   value="${user.userName }" name="userName"  class="form-control form-control-lg" id="colFormLabelLg" >
+                   <input type="text"   value="${us.userName }" name="userName"  class="form-control form-control-lg" id="colFormLabelLg" >
          </div>
                   </div>
-                  
                    <div class="row col-sm-offset-2">
                   <div class="form-group col-sm-5 col-sm-offset-2">
                     <label for="example-nf-password">用户密码</label>
@@ -64,7 +63,7 @@
         <c:forEach items="${list}" var="role">
         
         
-         <option   ${role.id==user.role.id?'selected':''}      value="${role.id}">${role.roleName}</option>
+         <option   ${role.id==us.role.id?'selected':''}      value="${role.id}">${role.roleName}</option>
         
         </c:forEach>
     </select>

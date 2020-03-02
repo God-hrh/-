@@ -7,10 +7,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
 <title>区域展示</title>
-<link rel="icon" href="favicon.ico" type="image/ico">
-<meta name="keywords" content="LightYear,光年,后台模板,后台管理系统,光年HTML模板">
-<meta name="description" content="LightYear是一个基于Bootstrap v3.3.7的后台管理系统的HTML模板。">
-<meta name="author" content="yinqi">
+<link rel="icon" href="https://im.qq.com/favicon.ico">
 <link href="${pageContext.request.contextPath}/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/dist/css/materialdesignicons.min.css" rel="stylesheet">
 <link href="${pageContext.request.contextPath}/dist/css/style.min.css" rel="stylesheet">
@@ -31,21 +28,15 @@
     <main class="lyear-layout-content">
       
       <div class="container-fluid">
-         <div class="card-header">
-               <div class="row">
-               <div class="col-lg-4">       
-       <a href="${pageContext.request.contextPath}/page/building/buildingadd.jsp" 
-        class="btn btn-success   btn-w-md">新增区域</a></div>
-                  </div>
-                  </div>
+       
         <div class="row">
           <div class="col-lg-12">
             <div class="card">
-              <div class="card-header"></div>
+              <div class="card-header"><h4>区域展示</h4></div>
               <div class="card-body">
                 
-                <h5>区域展示</h5>
-                
+                <a href="${pageContext.request.contextPath}/page/building/buildingadd.jsp" 
+        class="btn btn-success   btn-w-md">新增区域</a>
                  <table class="table">
 									<thead>
 										<tr>
@@ -100,12 +91,12 @@
 				<div class="modal-body">
 
 					<div class="alert alert-danger" role="alert">
-						你真的确定以及肯定删除该条记录吗？</div>
+						主人你真的要抛弃我吗＞﹏＜</div>
 				</div>
 				<div class="modal-footer">
-					<a href="" class="btn btn-danger" id="delbtn">残忍删除</a>
+					<a href="" class="btn btn-danger" id="delbtn">一路走好</a>
 					<button type="button" onclick="closeModal()"
-						class="btn btn-success">我再考虑一下</button>
+						class="btn btn-success">我再想想</button>
 
 				</div>
 			</div>
@@ -113,19 +104,21 @@
 	</div>
 
 
+
+
+
+
+
     
-   <div class="section-body">
             
-            
-             
-           <!-- 页面 -->
-                   
-                  <div class="card-footer text-right">
-                    <nav class="d-inline-block">
-                      <ul class="pagination mb-0">
-                        <li class="page-item ">
-                          <a class="page-link" href="buildingIndex?pageNo=${page.pageNo-1}" tabindex="-1"><i class="ion ion-chevron-left">首页</i></a>
-                        </li>
+             <nav class="text-right">
+                  <ul class="pagination mb-0 ">
+                  <li class="page-item "><a class="page-link" href="buildingIndex?pageNo=1">首页<span class="sr-only">(current)</span></a></li>
+                       <%--  <li class="page-item ">
+                        <c:if test="${page.pageNo>1}">
+                          <a class="page-link" href="buildingIndex?pageNo=${page.pageNo-1}" tabindex="-1"><i class="mdi mdi-chevron-left"></i></a>
+                        </c:if>
+                        </li> --%>
                         <c:forEach begin="1" end="${page.totalPage}" var="p">
                           <c:choose >
                              <c:when test="${page.pageNo==p}">
@@ -136,54 +129,21 @@
                              </c:otherwise>
                           </c:choose>
                         </c:forEach>
-                       <li class="page-item">
-                          <a class="page-link" href="buildingIndex?pageNo=${page.pageNo+1}"><i class="ion ion-chevron-right">尾页</i></a>
-                        </li>
+                       <%-- <li class="page-item">
+                       <c:if test="${page.pageNo+1<=page.totalPage}">
+                          <a class="page-link" href="buildingIndex?pageNo=${page.pageNo+1}"><i class="mdi mdi-chevron-right"></i></a>
+                        </c:if>
+                        </li> --%>
+                        <li class="page-item "><a class="page-link" href="buildingIndex?pageNo=${page.totalPage}">尾页<span class="sr-only">(current)</span></a></li>
                       </ul>
-                    </nav>
-                  </div>
-                </div>
+                </nav>
+             
+         
             
     
   
     
     
-    
-<!-- 新增的模态框 -->
-<div class="modal fade" id="addModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        
-        
-   <form action="buildingAdd" method="post" id="addForm"> 
-  <div class="form-group row">
-    <label for="staticEmail" class="col-sm-2 col-form-label">区域名称</label>
-    <div class="col-sm-10">
-      <input type="text"  class="form-control-plaintext" id="staticEmail"  name="buildingName">
-    </div>
-  </div>
-  
-</form>
-        
-        
-        
-        
-        
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-        <button type="button" class="btn btn-primary" onclick="saveBuilding()">新增</button>
-      </div>
-    </div>
-  </div>
-</div>
     
     
     

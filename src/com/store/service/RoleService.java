@@ -34,7 +34,7 @@ public interface RoleService {
 	 * @param id
 	 * @return 是否删除成功
 	 */
-	public  boolean   delSysRole(int id);
+	public  boolean   delSysRole(String id);
 	/**
 	 * 分页查询的方法
 	 * @param pageSize
@@ -47,7 +47,7 @@ public interface RoleService {
 	 * @param id
 	 * @return 唯一的角色对象
 	 */
-	public  SysRole      querySysRoleById(int id);
+	public  SysRole      querySysRoleById(String id);
 	/**
 	 * 查询所有的角色信息
 	 * @return  包含所有角色信息的集合

@@ -8,12 +8,11 @@ public class SysRole {
 	
 	private    String id;
 	private    String roleName;
-	private    String available;
 	public String getId() {
 		return id;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setId(String string) {
+		this.id = string;
 	}
 	public String getRoleName() {
 		return roleName;
@@ -21,10 +20,12 @@ public class SysRole {
 	public void setRoleName(String roleName) {
 		this.roleName = roleName;
 	}
-	public String getAvailable() {
+	public int getAvailable() {
 		return available;
 	}
-	public void setAvailable(String available) {
+	public void setAvailable(int available) {
 		this.available = available;
 	}
+	private    int available;
+	
 }

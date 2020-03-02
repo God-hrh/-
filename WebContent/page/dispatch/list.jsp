@@ -68,14 +68,14 @@
 
 <!--  分页-->
      
-                <nav>
-                  <ul class="pagination mb-0">
+                <nav class="text-right">
+                  <ul class="pagination mb-0 ">
                   <li class="page-item "><a class="page-link" href="dispatchIndex?pageNo=1">首页<span class="sr-only">(current)</span></a></li>
-                        <li class="page-item ">
+                       <%--  <li class="page-item ">
                         <c:if test="${page.pageNo>1}">
                           <a class="page-link" href="dispatchIndex?pageNo=${page.pageNo-1}" tabindex="-1"><i class="mdi mdi-chevron-left"></i></a>
                         </c:if>
-                        </li>
+                        </li> --%>
                         <c:forEach begin="1" end="${page.totalPage}" var="p">
                           <c:choose >
                              <c:when test="${page.pageNo==p}">
@@ -86,11 +86,11 @@
                              </c:otherwise>
                           </c:choose>
                         </c:forEach>
-                       <li class="page-item">
+                       <%-- <li class="page-item">
                        <c:if test="${page.pageNo+1<=page.totalPage}">
                           <a class="page-link" href="dispatchIndex?pageNo=${page.pageNo+1}"><i class="mdi mdi-chevron-right"></i></a>
                         </c:if>
-                        </li>
+                        </li> --%>
                         <li class="page-item "><a class="page-link" href="dispatchIndex?pageNo=${page.totalPage}">尾页<span class="sr-only">(current)</span></a></li>
                       </ul>
                 </nav>
