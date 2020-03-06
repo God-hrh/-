@@ -8,8 +8,10 @@
     <aside class="lyear-layout-sidebar">
       <!-- logo -->
        <link rel="icon" href="https://im.qq.com/favicon.ico">
-      
-      <div id="logo" class="sidebar-header" >
+      <div id="logo" class="sidebar-header">
+        <a href="index.html"><img src="${pageContext.request.contextPath }/dist/images/logo-sidebar.png" title="LightYear" alt="LightYear" style="height: 32px;"></a>
+      </div>
+      <!-- <div id="logo" class="sidebar-header" >
       <div class="logo" style="width: 240px;
 	height: 64px;">
 	<div style="text-align: center;line-height: 60px;">
@@ -17,7 +19,7 @@
 	</div>
       </div>
       	
-      </div>
+      </div> -->
       <div class="lyear-layout-sidebar-scroll"> 
         
         <nav class="sidebar-main">

@@ -5,13 +5,7 @@ import java.util.Map;
 
 import com.store.pojo.Repair;
 
-/**
- * 
- * @title   RepairServcie.java
- * @author  付军
- * @data    2020年2月25日上午9:19:03
- * @version 1.0
- */
+
 public interface RepairService {
 
 	

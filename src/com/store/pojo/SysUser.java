@@ -10,7 +10,17 @@ public class SysUser {
 	private  String  userPwd;
 	private  String  salt;
 	private  int     locked;
-	
+	private  String userRole;
+	public String toString() {
+		return "SysUser [id=" + id + ", userCode=" + userCode + ", userName=" + userName + ", userPwd=" + userPwd
+				+ ", locked=" + locked + ", userRole=" + userRole + "]";
+	}
+	public String getUserRole() {
+		return userRole;
+	}
+	public void setUserRole(String userRole) {
+		this.userRole = userRole;
+	}
 	public SysUser() {
 		super();
 	}

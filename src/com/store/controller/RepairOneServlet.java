@@ -42,6 +42,7 @@ public class RepairOneServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html; charset=UTF-8");
 		//添加 Servelt
 		//获取到用户传入参数  id
 		String repairId=request.getParameter("id");

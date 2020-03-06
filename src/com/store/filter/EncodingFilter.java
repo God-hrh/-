@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Servlet Filter implementation class EncodingFilter
@@ -33,8 +34,13 @@ public class EncodingFilter implements Filter {
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-	request.setCharacterEncoding("utf-8");
-		chain.doFilter(request, response);
+		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
+		String path = httpServletRequest.getServletPath();
+		if (path.contains("/dist")) {
+			chain.doFilter(request, response);
+		}
+		request.setCharacterEncoding("utf-8");
+		
 		response.setContentType("text/html; charset=UTF-8");
 	}
 

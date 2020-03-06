@@ -47,7 +47,6 @@ public class EquipmentAddServlet extends HttpServlet {
 		
 		request.getRequestDispatcher("/EquipmentServlet").forward(request, response);
 		
-		
 	}
 
 	

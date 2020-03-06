@@ -1,9 +1,5 @@
 package com.store.pojo;
-/**
- * 实体类
- * @author Administrator
- *
- */
+
 
 import java.util.Date;
 

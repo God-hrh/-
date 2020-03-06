@@ -1,9 +1,5 @@
 package com.store.pojo;
-/**
- * 角色实体类 
- * @author Administrator
- *
- */
+
 public class SysRole {
 	
 	private    String id;

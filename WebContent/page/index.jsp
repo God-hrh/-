@@ -98,16 +98,16 @@ $(document).ready(function(e) {
        
     
     var $dashChartBarsData = {
-		labels: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+		labels:  ['华硕电脑', 'vivi机器人', '巨幕投影仪', '笔记本电脑', '格力空调', 'iPhone11', '洗衣机'],
 		datasets: [
 			{
-				label: '报修系统一周活跃用户',
+				label: '设备报修次数统计表',
                 borderWidth: 0,
                 borderColor: 'rgba(0,0,0,0)',
 				backgroundColor: 'rgba(51,202,185,0.8)',
                 hoverBackgroundColor: "rgba(51,202,185,0.7)",
                 hoverBorderColor: "rgba(0,0,0,0)",
-				data: [2500, 1500, 1200, 3200, 4800, 3500, 1500]
+				data: [0.99999,2.0,5.0,4.0,3.0,1.0,2.0] 
 			}
 		]
 	};

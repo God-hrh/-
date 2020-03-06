@@ -56,7 +56,6 @@ public class RepairAddServlet extends HttpServlet {
 		
 		
 		
-		
 		UserDao userDao=new UserDaoImpl();
 		SysUser sys=new SysUser();
 		 sys=userDao.querySysUserIDByName(equipment_user);

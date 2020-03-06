@@ -42,7 +42,7 @@
 					<div class="col-lg-12">
 						<div class="card">
 							<div class="card-header">
-								<h4>维修调度</h4>
+								<h4>设备维修</h4>
 							</div>
 
 
@@ -84,7 +84,7 @@
 								<div class="form-group row">
 
 									<div class="col-md-2"></div>
-									<label for="assignName" class="col-md-2  col-form-label-lg">报修人</label>
+									<label for="assignName" class="col-md-2  col-form-label-lg">维修人</label>
 									<div class="col-md-4">
 										<input type="text" name="assignName"
 											class="form-control form-control-lg disabled" disabled

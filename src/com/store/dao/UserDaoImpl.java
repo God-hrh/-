@@ -117,6 +117,7 @@ public class UserDaoImpl  implements  UserDao {
 	
 		List<SysUser> list=new ArrayList<SysUser>();
 		String sql="select id,usercode,username,userpwd,locked from sys_user limit ?,?";
+//		String sql="SELECT sys_user.id,sys_user.locked,sys_user.usercode,sys_user.username,sys_user.userpwd,sys_role.rolename,sys_role.id FROM sys_user ,sys_role,sys_user_role WHERE sys_user.id=sys_user_role.sys_user_id AND sys_role.id=sys_user_role.sys_role_id limit ?,?";
 		conn=DBUtil.getConnection();
 		try {
 			stmt=conn.prepareStatement(sql);
@@ -130,6 +131,7 @@ public class UserDaoImpl  implements  UserDao {
 				u.setUserCode(rs.getString("usercode"));
 				u.setUserPwd(rs.getString("userpwd"));
 				u.setLocked(rs.getInt("locked"));
+//				u.setUserRole(rs.getString("rolename"));
 				list.add(u);
 			}
 		} catch (SQLException e) {

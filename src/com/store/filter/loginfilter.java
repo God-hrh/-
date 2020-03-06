@@ -44,7 +44,7 @@ public class loginfilter implements Filter {
 		HttpServletResponse httpServletResponse = (HttpServletResponse) response;
 		SysUser sysUser =  (SysUser) httpServletRequest.getSession().getAttribute("user");
 		String path = httpServletRequest.getServletPath();
-		if (path.contains("/img.jpg")||path.contains("/page/login.jsp")||path.contains("/loginservlet")) {
+		if (path.contains("checkcaptcha")||path.contains("/img.jpg")||path.contains("/page/login.jsp")||path.contains("/dist")||path.contains("/loginservlet")) {
 			chain.doFilter(request, response);
 		}else {
 			if (sysUser==null) {

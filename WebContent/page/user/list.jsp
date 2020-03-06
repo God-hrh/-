@@ -42,9 +42,8 @@
                         <tr>
                           <th>用户编号</th>
                           <th>用户名称</th>
-                         <!--  <th>用户身份</th> -->
                           <th>用户状态</th>
-                          
+                          <!-- <th>用户身份</th> -->
                           <th>操作</th>
                         </tr>
                    </thead>
@@ -53,11 +52,8 @@
                         <tr  class="active">
                            <th scope="row">${u.userCode }</th>
                           <td>${u.userName}</td>
-                         
-                          <%-- 
-                          			后期调试，这里最好能加个身份显示
-                          <td>${user.role.rolename}</td> --%>
                           <td>${u.locked ==0 ?'正常':'账号被锁定' }</td>
+                          <%-- <td>${u.userRole}</td> --%>
                           <td><a href="userOne?id=${u.id}" class="btn btn-sm btn-info">编辑</a>
                            
                    <a href="#delModal" data-toggle="modal" role="button"   data-id="${u.id}" class="btn btn-sm btn-danger">

@@ -34,7 +34,7 @@
                 <li> <a href=""><i class="mdi mdi-lock-outline"></i> 修改密码</a> </li>
                 <li> <a href=""><i class="mdi mdi-delete"></i> 清空缓存</a></li>
                 <li class="divider"></li>
-                <li> <a href="logout"><i class="mdi mdi-logout-variant"></i> 退出登录</a> </li>
+                <li> <a href="${pageContext.request.contextPath }/logout"><i class="mdi mdi-logout-variant"></i> 退出登录</a> </li>
               </ul>
             </li>
             <!--切换主题配色-->

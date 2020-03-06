@@ -1,10 +1,6 @@
 package com.store.pojo;
 
-/**
- * 分页对象
- * @author 付军
- *
- */
+
 public class Page {
 
 	//当前页
